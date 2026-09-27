@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DevState — shrink a project to its essential state</title>
+    <meta
+      name="description"
+      content="DevState is a local CLI for developer storage. It scans a project, archives local-only state, cleans rebuildable bloat, and restores later. The source repository is private."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="mast">
+      <a class="brand" href="/">devstate</a>
+      <nav>
+        <a href="#scan">Scan</a>
+        <a href="#commands">Commands</a>
+        <a href="#request">Request</a>
+      </nav>
+      <p class="maturity">Local CLI · private source</p>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Developer storage · compression and recovery</p>
+        <h1>Shrink any project to its essential state. Restore it when you come back.</h1>
+        <p class="lede">
+          Startup folders fill up with <code>node_modules</code>, <code>.next</code>,
+          caches, logs, and local experiments until the disk calls it System Data.
+          DevState is a local CLI that separates source from rebuildable junk,
+          archives what GitHub does not hold, and writes memory files so a later
+          agent can rebuild the project.
+        </p>
+        <div class="actions">
+          <a class="btn primary" id="primary-cta" href="#scan">Run a sample scan</a>
+          <a class="btn" href="#commands">See the commands</a>
+        </div>
+      </section>
+
+      <section id="scan">
+        <h2>Sample scan</h2>
+        <p>
+          This output is a static example of what <code>devstate scan</code>
+          prints. It is not reading your disk from this website, and the CLI
+          source is not published here.
+        </p>
+        <form id="scan-form">
+          <button type="submit">Show scan output</button>
+        </form>
+        <pre id="scan-out" hidden>$ devstate scan
+
+Project: /startups/example
+Git repo: yes
+package.json: yes
+pnpm-lock.yaml: yes
+node_modules: yes
+
+Status:
+source safe
+local bloat found
+ready to archive</pre>
+      </section>
+
+      <section id="commands">
+        <h2>Core commands</h2>
+        <ul class="cmds">
+          <li><code>devstate scan</code></li>
+          <li><code>devstate clean</code></li>
+          <li><code>devstate disk-audit</code></li>
+          <li><code>devstate pnpm-audit</code></li>
+          <li><code>devstate pnpm-convert</code></li>
+          <li><code>devstate save</code></li>
+          <li><code>devstate restore</code></li>
+          <li><code>devstate memory-init</code></li>
+        </ul>
+        <p>
+          The product is local first. This site does not offer a download of
+          private source, and it does not claim paying customers.
+        </p>
+      </section>
+
+      <section id="request">
+        <h2>Request local access notes</h2>
+        <p>This page does not send email. Submit to open a mail draft on your machine.</p>
+        <form id="request-form" class="request">
+          <label>Name <input name="name" required autocomplete="name" /></label>
+          <label>Email <input name="email" type="email" required autocomplete="email" /></label>
+          <label>Which folders are getting heavy <textarea name="note" required rows="3"></textarea></label>
+          <button type="submit">Open a request draft</button>
+          <p class="status" id="request-status" hidden></p>
+        </form>
+      </section>
+    </main>
+
+    <footer>DevState · local CLI · source remains private</footer>
+    <script src="/app.js"></script>
+  </body>
+</html>

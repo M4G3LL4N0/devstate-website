@@ -1,0 +1,9 @@
+{
+  "name": "devstate-website",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Public website for DevState. Source repository stays private.",
+  "scripts": {
+    "build": "node -e \"console.log('static site')\""
+  }
+}
